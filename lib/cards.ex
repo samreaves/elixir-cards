@@ -40,7 +40,7 @@ defmodule Cards do
 
   @doc """
   Shuffle
-  Randomizes order of the cards in a given deck
+  Returns new deck of cards with a raandomized order from deck provided
 
   ## Examples
 
@@ -57,7 +57,7 @@ defmodule Cards do
 
   @doc """
   Deal
-  Returns a hand of a number of specified cards from a provided deck and the rest of the provided deck
+  Returns a hand (list of cards) of a specified number from a provided deck and the rest of the provided deck
 
   ## Examples
 
@@ -68,6 +68,8 @@ defmodule Cards do
       true
       iex> Enum.count(rest_of_deck) === Enum.count(shuffled_deck) - Enum.count(hand)
       true
+      iex> for card <- hand do Enum.member?(rest_of_deck, card) end
+      [false, false, false, false, false]
 
   """
   def deal(deck, size_of_hand) do
