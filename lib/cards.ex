@@ -44,8 +44,10 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.shuffle(Cards.create_deck())
-      ["Two", "Ace", "Three"]
+      iex> deck = Cards.create_deck
+      iex> shuffled_deck = Cards.shuffle(deck)
+      iex> List.first(deck) != List.first(shuffled_deck)
+      true
 
   """
   def shuffle(deck) do
@@ -55,17 +57,23 @@ defmodule Cards do
 
   @doc """
   Deal
-  Deals a hand of a number of specified cards from a provided deck
+  Returns a hand of a number of specified cards from a provided deck and the rest of the provided deck
 
   ## Examples
 
-      iex> Cards.deal(Cards.create_deck(), 5)
-      ["Two of Hearts", "Ace of Spades", "Three of Clubs", "Jack of Hearts", "Queen of Diamonds"]
+      iex> deck = Cards.create_deck
+      iex> shuffled_deck = Cards.shuffle(deck)
+      iex> {hand, rest_of_deck} = Cards.deal(shuffled_deck, 5)
+      iex> Enum.count(hand) === 5
+      true
+      iex> Enum.count(rest_of_deck) === Enum.count(shuffled_deck) - Enum.count(hand)
+      true
 
   """
   def deal(deck, size_of_hand) do
     Enum.split(deck, size_of_hand)
   end
+
 
 
 

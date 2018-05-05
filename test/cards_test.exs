@@ -1,8 +1,5 @@
 defmodule CardsTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Cards
 
-  test "greets the world" do
-    assert Cards.hello() == :world
-  end
 end
