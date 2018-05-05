@@ -1,10 +1,12 @@
 defmodule Cards do
   @moduledoc """
   Documentation for Cards.
+  Learning Elixir by making basic deck of cards functionality
   """
 
   @doc """
   Create Deck
+  Creates a deck of cards with all suits and values
 
   ## Examples
 
@@ -38,6 +40,7 @@ defmodule Cards do
 
   @doc """
   Shuffle
+  Randomizes order of the cards in a given deck
 
   ## Examples
 
@@ -52,6 +55,7 @@ defmodule Cards do
 
   @doc """
   Deal
+  Deals a hand of a number of specified cards from a provided deck
 
   ## Examples
 
